@@ -1,0 +1,29 @@
+.author-info {
+  display: flex;
+  display: -webkit-flex;
+  .author-avatar {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+  }
+
+  .content {
+    flex: 1;
+    -webkit-flex: 1;
+  }
+  .author-header {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    margin-bottom: 6px;
+  }
+  .author-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 12px;
+    font-size: 28px;
+    line-height: 40px;
+    color: #505050;
+  }
+}

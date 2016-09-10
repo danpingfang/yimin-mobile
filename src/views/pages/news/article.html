@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <title>文章详情</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="http://m.qu93.com/static/yimin/css/common.css">
+  <link rel="stylesheet" href="../../../../static/css/views/news/article.css">
+</head>
+<body>
+<div id="app">
+  <div class="article">
+    <div class="article-header">
+      <h2 class="article-title">红了10多年，这位导游界男网红怎么做到的？</h2>
+      <div class="article-meta">
+        <span class="article-author">巡山大王</span>
+        <span class="article-time">2016/06/06</span>
+        <span class="view-count">浏览量6892</span>
+        <a class="article-issue" href="">举报</a>
+      </div>
+    </div>
+    <div class="article-content">
+      <p>
+        老公精通英语，所以行程安排就交给老公规划，老公网上搜了一圈，惊喜的发现西班牙可以买房移而且只要5欧，两口子漏夜点灯盘算，手指脚趾都算上盘点了一下手头资，觉得有戏！</p>
+    </div>
+    <div class="article-footer">
+      <ul class="article-types">
+        <li class="article-type">
+          <i class="icon icon-cate"></i>
+          <span>澳大利亚</span>
+          <span>澳大利亚</span>
+          <span>澳大利亚</span>
+        </li>
+        <li class="article-type">
+          <i class="icon icon-tag"></i>
+          <span>移民故事</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="comment-container">
+    <h3 class="comment-title">回复(1)</h3>
+    <div class="comment">
+      <div class="author-info">
+        <div class="author-avatar"><img class="image"
+                                        src="http://simg-ui.lvbaoyou.com/test_fileId_ffa8d749-3a27-4c37-9a95-4a83a7508128"
+                                        alt="殷飞歼击机"></div>
+        <div class="content">
+          <div class="author-header">
+            <div class="author-name">殷飞歼击机</div>
+          </div>
+          <time>30分钟前</time>
+          <div class="text">说的很好</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment-more"><a class="comment-more-link"
+                                 href="">更多回复</a>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <button type="button" class="action-button button-arrow" @touchstart.prevent="onBack"><i
+      class="icon icon-caret"></i></button>
+    <button class="action-button button-write" @touchstart.prevent="onWrite"><i
+      class="icon icon-write"></i>写评论
+    </button>
+    <button class="action-button button-comment"><i
+      class="icon icon-comment"></i><span>0</span>
+    </button>
+    <button class="action-button button-fav" @touchstart.prevent="onVote"><i
+      class="icon icon-fav"></i><span>0</span>
+    </button>
+  </div>
+  <guide-tip :tip-text="tipText" :show-guide-tip="showGuideTip"></guide-tip>
+  <message-box-dialog :show-message-box="showMessageBox"></message-box-dialog>
+</div>
+<script src="http://m.qu93.com/static/yimin/js/build.vendor.js"></script>
+<script src="http://m.qu93.com/static/yimin/js/lazysizes.js"></script>
+<script src="../../../../dist/static/js/build.article.js"></script>
+<script>
+  var jsConfig = {
+    articleId: 5
+  };
+</script>
+</body>
+</html>

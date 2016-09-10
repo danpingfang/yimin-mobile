@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <title>文章资讯-搜索</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <!--<link rel="stylesheet" href="http://m.qu93.com/static/yimin/css/common.css">-->
+  <!--<link rel="stylesheet" href="static/css/views/news/search.css">-->
+</head>
+<body>
+<div id="main">
+  <input id="test" type="text" value="" autofocus>
+  <button type="button" id="t">button</button>
+</div>
+<!--<app></app>-->
+<script src="http://m.qu93.com/static/yimin/js/build.vendor.js"></script>
+<!--<script src="dist/static/js/build.search.js"></script>-->
+<script>
+  $("#t").on('click', function() {
+    $('#test').val('');
+    $('#test').focus();
+  });
+
+  $("#t").click();
+</script>
+</body>
+</html>

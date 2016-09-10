@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <title>资讯主页</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="http://m.qu93.com/static/yimin/css/common.css">
+  <link rel="stylesheet" href="../../../../static/css/views/news/index.css">
+</head>
+<body>
+<div id="app">
+  <div class="search search-bg">
+    <form class="search-form" action="search/App.vue">
+      <i class="icon icon-search"></i>
+      <input type="text" value="" placeholder="输入项目、地点、专家名">
+      <input type="submit" value="">
+    </form>
+  </div>
+  <nav class="nav">
+    <a class="nav-item" href="">
+      <span class="sprite-icon sprite-icon-guide"></span>
+      <span class="nav-item-text">移民攻略</span>
+    </a><a class="nav-item" href="">
+    <i class="sprite-icon sprite-icon-globe"></i>
+    <span class="nav-item-text">海外留学</span>
+  </a><a class="nav-item" href="">
+    <i class="sprite-icon sprite-icon-class"></i>
+    <span class="nav-item-text">移民课堂</span>
+  </a><a class="nav-item" href="">
+    <i class="sprite-icon sprite-icon-group"></i>
+    <span class="nav-item-text">华人圈子</span>
+  </a><a class="nav-item" href="">
+    <i class="sprite-icon sprite-icon-baby"></i>
+    <span class="nav-item-text">赴美生子</span>
+  </a>
+  </nav>
+  <div class="space"></div>
+  <ul class="cover-list">
+    <li class="cover-item">
+      <a href="">投资移民</a>
+    </li>
+    <li class="cover-item">
+      <a href="">海外教育</a>
+    </li>
+    <li class="cover-item">
+      <a href="">海外生活</a>
+    </li>
+    <li class="cover-item">
+      <a href="">赴美攻略</a>
+    </li>
+  </ul>
+  <div class="space"></div>
+  <div class="section">
+    <h3 class="title">
+      <a href="">
+        <span>最新资讯</span>
+        <i class="icon icon-arrow-left"></i>
+      </a>
+    </h3>
+    <div class="content">
+      <ul class="news-list" v-infinite-scroll="loadMore()"
+          infinite-scroll-disabled="busy" infinite-scroll-distance="60">
+        <li class="news-item">
+          <a class="news-container" href="">
+            <div class="content">
+              <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+              <div class="tags">
+                <span class="tag-item">移民故事</span>
+              </div>
+              <div class="extra-info">
+                <span class="author">寻山大王</span>
+                <time class="update-time">2016/08/23</time>
+                <span class="view-count">浏览量682</span>
+              </div>
+            </div>
+            <div class="image-container">
+              <img class="image lazyloaded"
+                   src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+                   alt="" data-src="">
+            </div>
+          </a>
+        </li>
+        <li class="news-item">
+          <a class="news-container" href="">
+            <div class="content">
+              <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+              <div class="tags">
+                <span class="tag-item">移民故事</span>
+              </div>
+              <div class="extra-info">
+                <span class="author">寻山大王</span>
+                <time class="update-time">2016/08/23</time>
+                <span class="view-count">浏览量682</span>
+              </div>
+            </div>
+            <div class="image-container">
+              <img class="image lazyloaded"
+                   src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+                   alt="" data-src="">
+            </div>
+          </a>
+        </li>
+        <li class="news-item">
+          <a class="news-container" href="">
+            <div class="content">
+              <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+              <div class="tags">
+                <span class="tag-item">移民故事</span>
+              </div>
+              <div class="extra-info">
+                <span class="author">寻山大王</span>
+                <time class="update-time">2016/08/23</time>
+                <span class="view-count">浏览量682</span>
+              </div>
+            </div>
+            <div class="image-container">
+              <img class="image lazyloaded"
+                   src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+                   alt="" data-src="">
+            </div>
+          </a>
+        </li>
+        <list :items="items"></list>
+      </ul>
+      <loading :is-loading="isLoading"></loading>
+    </div>
+  </div>
+</div>
+<script src="http://m.qu93.com/static/yimin/js/build.vendor.js"></script>
+<script src="http://m.qu93.com/static/yimin/js/lazysizes.js"></script>
+<script src="http://m.qu93.com/static/yimin/js/build.newsIndex.js"></script>
+</body>
+</html>

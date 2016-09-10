@@ -1,0 +1,73 @@
+@import "../../base/layout";
+@import "../../components/Search";
+@import "../../components/Tags";
+@import "../../components/NewsList";
+
+.page-article-news,
+.page-search-news {
+  .search,
+  .category-select {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.page-article-news {
+  padding-top: 44px;
+  .search-form {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    width: 41px;
+    background-color: #EBEBEB;
+    .icon {
+      position: static;
+    }
+  }
+  .category-select {
+    top: 0;
+  }
+  .button-select {
+    padding: 12px;
+  }
+}
+
+.page-search-news {
+  padding-top: 101px;
+  .category-select {
+    top: 60px;
+  }
+}
+
+.category-select {
+  display: flex;
+  display: -webkit-flex;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.button-select {
+  flex: 1;
+  -webkit-flex: 1;
+  padding: 12px;
+  border-right: 1px solid #ebebeb;
+  font-size: 13px;
+  white-space: nowrap;
+  background-color: #fff;
+  color: #5a5a5a;
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icon-down {
+    vertical-align: middle;
+    color: #a0a0a0;
+  }
+  &:last-child {
+    border-right-color: transparent;
+  }
+}

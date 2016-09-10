@@ -1,0 +1,35 @@
+.guide-tip {
+  text-align: center;
+  background-color: #fff;
+  .sprite-icon-cat {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+    background: url(/static/yimin/images/img_bangdingyindao2x.png) no-repeat 0 0;
+    background-size: 96px 96px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    color: #3a3a3a;
+  }
+}
+
+.guideTipDialog {
+  .ui-dialog {
+    vertical-align: bottom;
+  }
+  .ui-dialog-container {
+    margin: 0;
+    padding-bottom: 62px;
+    border-radius: 0;
+  }
+  .ui-dialog-body {
+    margin: 0;
+  }
+  .ui-dialog-footer {
+    padding: 0 64px;
+  }
+}

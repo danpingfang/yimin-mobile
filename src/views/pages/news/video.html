@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <title>语音详情</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <!--<link rel="stylesheet" href="http://m.qu93.com/static/yimin/css/common.css">-->
+  <link rel="stylesheet" href="../../../../static/css/common.css">
+  <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../static/css/views/news/article.css">
+</head>
+<body>
+<div id="app">
+  <video id="video" class="video-js vjs-ym-skin"
+         controls preload="auto"
+         src="http://videos-cdn.mozilla.net/serv/webmademovies/Moz_Doc_0329_GetInvolved_ST.webm"></video>
+  <div class="article-media article-media--video">
+    <h3 class="article-media-title">有没有人知道，在新西兰买卖二手房，都有什么中间费用？</h3>
+    <ul class="article-media-tags tags tags-small">
+      <li class="tag-item">移民攻略</li>
+    </ul>
+    <div class="article-media-meta">2016/06/06 | 68575听过</div>
+  </div>
+  <div class="space"></div>
+</div>
+<!--<script src="http://m.qu93.com/static/yimin/js/build.vendor.js"></script>-->
+<script src="../../../../dist/static/js/build.vendor.js"></script>
+<script src="../../../../node_modules/video.js/dist/video.js"></script>
+<script src="../../../../dist/static/js/build.article.js"></script>
+<script>
+  var jsConfig = {
+    articleId: 123,
+    commentCount: 1
+  };
+  videojs(document.querySelector('video'), {
+    width: window.innerWidth,
+    height: 240
+  }, function () {
+  });
+</script>
+</body>
+</html>

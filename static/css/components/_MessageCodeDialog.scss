@@ -1,0 +1,35 @@
+.message-code {
+  margin: 20px 0;
+  font-size: 13px;
+  color: #a0a0a0;
+  input[type="tel"] {
+    height: 42px;
+    padding: 6px 22px;
+    line-height: 30px;
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    border-radius: 58px;
+    &.form-input-error {
+      border-color: #e2694f;
+    }
+  }
+  .message-code-tip {
+    margin: 8px 0 18px;
+  }
+  img {
+    height: 38px;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+  }
+  button {
+    font-size: 13px;
+    color: #a0a0a0;
+  }
+}
+
+.message-code-dialog {
+  .ui-dialog-container {
+    padding: 40px 30px;
+    border-radius: 16px;
+  }
+}

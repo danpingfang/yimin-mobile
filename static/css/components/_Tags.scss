@@ -1,0 +1,35 @@
+.tags {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  .tag-item {
+    overflow: hidden;
+    margin: 0 6px 6px 0;
+    padding: 3px 10px;
+    border-radius: 56px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #7c8389;
+    background-color: #eceeef;
+  }
+
+  &.tags-medium {
+    .tag-item {
+      margin: 0 10px 10px 0;
+      padding: 6px 14px;
+      border-radius: 36px;
+      font-size: 15px;
+    }
+  }
+
+  &.tags-light {
+    .tag-item {
+      border: 1px solid #a2aeb8;
+      color: #889198;
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "../../base/layout";
+@import "../../components/Tags";
+@import "../../components/Search";
+@import "../../components/NewsList";
+
+.nav {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  .nav-item {
+    display: inline-block;
+    padding: 12px 12px 20px;
+    text-align: center;
+    white-space: nowrap;
+    .sprite-icon {
+      display: block;
+      margin: 0 auto;
+      width: 60px;
+      height: 60px;
+      background: transparent no-repeat 0 0;
+      background-size: 60px 60px;
+    }
+    .sprite-icon-guide {
+      background-image: url(/static/yimin/images/icon_yiminggonglue2x.png);
+    }
+    .sprite-icon-globe {
+      background-image: url(/static/yimin/images/icon_haiwailiuxue2x.png);
+    }
+    .sprite-icon-class {
+      background-image: url(/static/yimin/images/icon_yimingketang2x.png);
+    }
+    .sprite-icon-group {
+      background-image: url(/static/yimin/images/icon_huarenquanzi2x.png);
+    }
+    .sprite-icon-baby {
+      background-image: url(/static/yimin/images/icon_fumeishengzi2x.png);
+    }
+  }
+  .nav-item-text {
+    font-size: 13px;
+    line-height: 18px;
+    color: #474e53;
+  }
+}
+
+.cover-list {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  padding: 10px 6px;
+  .cover-item {
+    flex-basis: 50%;
+    -webkit-flex-basis: 50%;
+    a {
+      display: block;
+      height: 112px;
+      margin: 6px;
+      border-radius: 8px;
+      font-size: 20px;
+      line-height: 112px;
+      text-align: center;
+      background: transparent no-repeat 0 0;
+      background-size: cover;
+      color: #fff;
+    }
+    &:nth-child(1) a {
+      background-image: url(/static/yimin/images/bg_touziyiming2x.png);
+    }
+    &:nth-child(2) a {
+      background-image: url(/static/yimin/images/bg_haiwaijiaoyu2x.png);
+    }
+    &:nth-child(3) a {
+      background-image: url(/static/yimin/images/bg_haiwaishenghuo2x.png);
+    }
+    &:nth-child(4) a {
+      background-image: url(/static/yimin/images/bg_fumeigonglue2x.png);
+    }
+  }
+}

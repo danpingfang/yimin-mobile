@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <title>文章资讯</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="http://m.qu93.com/static/yimin/css/common.css">
+  <link rel="stylesheet" href="../../../../static/css/views/news/list.css">
+</head>
+<body>
+<div id="app" class="page-article-news">
+  <div class="search search-gray">
+    <form class="search-form">
+      <i class="icon icon-search"></i>
+      <input type="text" value="" placeholder="输入项目、地点、专家名">
+      <input type="submit" value="">
+    </form>
+  </div>
+  <form class="category-select">
+    <button type="button"
+            class="button-select button-project"
+            @touchstart.prevent="handleSelect('project')">
+      <span>$!{selectedProject}</span><i class="icon icon-down"></i>
+    </button>
+    <button type="button"
+            class="button-select button-country"
+            @touchstart.prevent="handleSelect('country')">
+      <span>$!{selectedCountry}</span><i class="icon icon-down"></i>
+    </button>
+    <button type="button"
+            class="button-select button-category"
+            @touchstart.prevent="handleSelect('category')">
+      <span>$!{selectedCategory}</span><i class="icon icon-down"></i>
+    </button>
+  </form>
+  <ul class="news-list" v-infinite-scroll="loadMore()"
+      infinite-scroll-disabled="busy" infinite-scroll-distance="60">
+    <li class="news-item">
+      <a class="news-container" href="">
+        <div class="content">
+          <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+          <ul class="tags tags-small">
+            <li class="tag-item">移民故事</li>
+          </ul>
+          <div class="extra-info">
+            <span class="author">寻山大王</span>
+            <time class="update-time">2016/08/23</time>
+            <span class="view-count">浏览量682</span>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="image lazyloaded"
+               src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+               alt="" data-src="">
+        </div>
+      </a>
+    </li>
+    <li class="news-item">
+      <a class="news-container" href="">
+        <div class="content">
+          <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+          <ul class="tags tags-small">
+            <li class="tag-item">移民故事</li>
+          </ul>
+          <div class="extra-info">
+            <span class="author">寻山大王</span>
+            <time class="update-time">2016/08/23</time>
+            <span class="view-count">浏览量682</span>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="image lazyloaded"
+               src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+               alt="" data-src="">
+        </div>
+      </a>
+    </li>
+    <li class="news-item">
+      <a class="news-container" href="">
+        <div class="content">
+          <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+          <ul class="tags tags-small">
+            <li class="tag-item">移民故事</li>
+          </ul>
+          <div class="extra-info">
+            <span class="author">寻山大王</span>
+            <time class="update-time">2016/08/23</time>
+            <span class="view-count">浏览量682</span>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="image lazyloaded"
+               src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+               alt="" data-src="">
+        </div>
+      </a>
+    </li>
+    <li class="news-item">
+      <a class="news-container" href="">
+        <div class="content">
+          <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+          <ul class="tags tags-small">
+            <li class="tag-item">移民故事</li>
+          </ul>
+          <div class="extra-info">
+            <span class="author">寻山大王</span>
+            <time class="update-time">2016/08/23</time>
+            <span class="view-count">浏览量682</span>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="image lazyloaded"
+               src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+               alt="" data-src="">
+        </div>
+      </a>
+    </li>
+    <li class="news-item">
+      <a class="news-container" href="">
+        <div class="content">
+          <h3 class="news-title">浅谈美国海纳愚夫国际战略投资研究中心及思考</h3>
+          <ul class="tags tags-small">
+            <li class="tag-item">移民故事</li>
+          </ul>
+          <div class="extra-info">
+            <span class="author">寻山大王</span>
+            <time class="update-time">2016/08/23</time>
+            <span class="view-count">浏览量682</span>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="image lazyloaded"
+               src="http://cmstest-10042021.image.myqcloud.com/228e31f4-c490-47d6-8e97-296d490b3dd0"
+               alt="" data-src="">
+        </div>
+      </a>
+    </li>
+    <list :items="items"></list>
+  </ul>
+  <loading :is-loading="isLoading"></loading>
+  <menu-select :menu-items="config.project.menuItems"
+               :show="config.project.show"></menu-select>
+  <menu-select :menu-items="config.country.menuItems"
+               :show="config.country.show"></menu-select>
+  <menu-select :menu-items="config.category.menuItems"
+               :show="config.category.show"></menu-select>
+</div>
+<script src="http://m.qu93.com/static/yimin/js/build.vendor.js"></script>
+<script src="http://m.qu93.com/static/yimin/js/lazysizes.js"></script>
+<script src="http://m.qu93.com/static/yimin/js/build.newsList.js"></script>
+<script>
+  var jsConfig = {
+    "selectedCountry": "国家",
+    "selectedCategory": "内容分类",
+    "selectedProject": "项目分类",
+    "keyword": "旅游",
+    "selectedCondition": {
+      "country": [{
+        "name": "测试国家",
+        "key": "TEST",
+        "selected": false
+      }, {"name": "测试国家2", "key": "TEST2", "selected": false}, {
+        "name": "爱尔兰",
+        "key": "IE",
+        "selected": false
+      }, {"name": "澳大利亚", "key": "AU", "selected": false}, {
+        "name": "多米尼克",
+        "key": "DM",
+        "selected": false
+      }, {"name": "法国", "key": "FR", "selected": false}, {
+        "name": "加拿大",
+        "key": "CA",
+        "selected": false
+      }, {"name": "马耳他", "key": "MT", "selected": false}, {
+        "name": "美国",
+        "key": "US",
+        "selected": false
+      }, {"name": "葡萄牙", "key": "PT", "selected": false}, {
+        "name": "瑞典",
+        "key": "SE",
+        "selected": false
+      }, {"name": "塞浦路斯", "key": "CY", "selected": false}, {
+        "name": "圣基茨和尼维斯",
+        "key": "KN",
+        "selected": false
+      }, {"name": "瓦努阿图", "key": "VU", "selected": false}, {
+        "name": "西班牙",
+        "key": "ES",
+        "selected": false
+      }, {"name": "希腊", "key": "GR", "selected": false}, {
+        "name": "香港特别行政区",
+        "key": "HK",
+        "selected": false
+      }, {"name": "新西兰", "key": "NZ", "selected": false}, {
+        "name": "匈牙利",
+        "key": "HU",
+        "selected": false
+      }, {"name": "意大利", "key": "IT", "selected": false}, {
+        "name": "英国",
+        "key": "UK",
+        "selected": false
+      }],
+      "project": [{
+        "name": "技术移民",
+        "key": "10",
+        "selected": false
+      }, {"name": "投资移民", "key": "11", "selected": false}, {
+        "name": "雇主担保移民",
+        "key": "13",
+        "selected": false
+      }, {"name": "海外留学", "key": "12", "selected": false}, {
+        "name": "购房移民",
+        "key": "120",
+        "selected": false
+      }],
+      "category": [{
+        "name": "移民攻略",
+        "key": "24",
+        "selected": false
+      }, {"name": "海外留学", "key": "25", "selected": false}, {
+        "name": "赴美生子",
+        "key": "26",
+        "selected": false
+      }, {"name": "移民课堂", "key": "27", "selected": false}, {
+        "name": "华人圈子",
+        "key": "28",
+        "selected": false
+      }, {"name": "移民内幕", "key": "29", "selected": false}]
+    }
+  };
+  vm.config = {
+    keyword: jsConfig.keyword,
+    project: {
+      selectedKey: jsConfig.selectedProjectKey,
+      menuItems: jsConfig.selectedCondition.project,
+      show: false
+    },
+    country: {
+      selectedKey: jsConfig.selectedCategoryKey,
+      menuItems: jsConfig.selectedCondition.country,
+      show: false
+    },
+    category: {
+      selectedKey: jsConfig.selectedCategoryKey,
+      menuItems: jsConfig.selectedCondition.category,
+      show: false
+    }
+  };
+</script>
+</body>
+</html>
