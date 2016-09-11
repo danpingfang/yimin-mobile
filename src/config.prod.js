@@ -1,5 +1,5 @@
 const domainUrl = 'http://wx.lvbaoyou.com';
-const staticUrl = '//m.qu93.com';
+const staticUrl = '//s.lvbaoyou.com';
 
 export default {
   domainUrl,

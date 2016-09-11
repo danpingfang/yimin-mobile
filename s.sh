@@ -18,9 +18,9 @@ cp -r static/css/**/**/*.css dist/static/css/
 cp -r static/fonts/ dist/static/
 cp -r static/images/ dist/static/
 if [ $1 = "publish" ]; then
-      rsync -av cp node_modules/video.js root@115.159.33.205:/var/www/app/static/node_modules/
+      rsync -av node_modules/video.js root@115.159.33.205:/var/www/app/static/node_modules/
       rsync -av dist/static/ root@115.159.33.205:/var/www/app/static/yimin/
     else
-      rsync -av cp node_modules/video.js root@115.159.33.205:/var/www/app/test/static/node_modules/
+      rsync -av node_modules/video.js root@115.159.33.205:/var/www/app/test/static/node_modules/
       rsync -av dist/static/ root@115.159.33.205:/var/www/app/test/static/yimin/
 fi

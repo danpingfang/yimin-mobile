@@ -24,7 +24,7 @@
         </div>
         <button type="button"
                 class="ui-dialog-close"
-                @touchstart="onClose"><i class="icon icon-close"></i></button>
+                @touchstart.prevent.stop="onClose"><i class="icon icon-close"></i></button>
       </div>
     </div>
   </div>

@@ -1,13 +1,19 @@
 import Vue from 'vue';
 import config from '../../../config';
+import VueInfiniteScroll from 'vue-infinite-scroll';
 import checkLogin from '../../../checkLogin';
 import Toast from 'vue-toast-mobile';
-import Comment from '../../components/Comment.vue';
+import Comment from '../../components/Comment';
+import CommentAdd from '../../components/CommentAdd';
+import CommentEmpty from '../../components/CommentEmpty';
+import CommentMoreButton from '../../components/CommentMoreButton';
 import MessageBox from '../../components/MessageBox';
 import GuideTip from '../../components/GuideTip';
 import MessageBoxDialog from '../../components/MessageBoxDialog';
 import AudioEx from '../../components/AudioEx';
 import Loading from '../../components/Loading';
+
+Vue.use(VueInfiniteScroll);
 
 $(function() {
   const articleId = jsConfig.articleId;
@@ -17,6 +23,8 @@ $(function() {
     el: '#app',
     data() {
       return {
+        isLogin: false,
+        addComments: [],
         comments: [],
         busy: false,
         isLoading: false,
@@ -31,6 +39,9 @@ $(function() {
     },
     components: {
       Comment,
+      CommentAdd,
+      CommentMoreButton,
+      CommentEmpty,
       MessageBox,
       AudioEx,
       Loading,
@@ -48,39 +59,21 @@ $(function() {
         this.hideGuideTip();
       },
       onMessageCancel() {
-        this.showMessageBox = false;
-        document.body.classList.remove('ui-overflow-hidden');
+        this.hideMessageBox();
       },
-      onMessageSend(comment) {
-        const href = location.href;
-        const self = this;
-        self.showMessageBox = false;
-        document.body.classList.add('ui-overflow-hidden');
-        $.ajax({
-          type: 'post',
-          url: `${config.authApiUrl}/art/${articleId}/add_comment`,
-          data: {
-            content: comment
-          },
-          success(response) {
-            const code = response.code;
-            if (code === 0) {
-              localStorage.setItem('isScroll', true);
-              location.href = href;
-            } else {
-              self.showToast(response.message);
-            }
-          }
-        });
+      onMessageSend(content) {
+        this.sendMessage(content);
+      },
+      onWrite() {
+        this.onWrite();
       }
     },
-    ready() {
-      if (localStorage.getItem('isScroll')) {
-        $('html, body').animate({
-          scrollTop: $('.comment-container').offset().top
-        });
-        localStorage.removeItem('isScroll');
-      }
+    created() {
+      checkLogin().done((response) => {
+        if (response.code === 0) {
+          this.isLogin = true;
+        }
+      });
     },
     methods: {
       loadMore() {
@@ -96,7 +89,7 @@ $(function() {
             self.isLoading = true;
           },
           success(response) {
-            if (response.code > 0) {
+            if (response.code === 0) {
               const data = response.data;
               if (data.count > 0) {
                 self.comments = self.comments.concat(data.list);
@@ -106,6 +99,40 @@ $(function() {
             }
             self.isLoading = false;
           }
+        });
+      },
+      hideMessageBox() {
+        this.showMessageBox = false;
+        document.getElementById('comment-input').value = '';
+        document.getElementById('comment-input').blur();
+        document.body.classList.remove('ui-overflow-hidden');
+      },
+      sendMessage(content) {
+        const self = this;
+        this.hideMessageBox();
+        $.ajax({
+          type: 'post',
+          url: `${config.authApiUrl}/art/${articleId}/add_comment`,
+          data: {
+            content: content
+          },
+          success(response) {
+            const code = response.code;
+            if (code === 0) {
+              self.addComment(response.data);
+            } else {
+              self.showToast(response.message);
+            }
+          }
+        });
+      },
+      addComment(comment) {
+        this.addComments = [comment].concat(this.addComments);
+        this.setScroll();
+      },
+      setScroll() {
+        $('html, body').animate({
+          scrollTop: $('.comment-container').offset().top
         });
       },
       hideGuideTip() {
@@ -124,28 +151,25 @@ $(function() {
         }
       },
       onWrite() {
-        checkLogin().done((response) => {
-          if (response.code === 0) {
+        if (this.isLogin) {
+          this.showMessageBox = true;
+          document.body.classList.add('ui-overflow-hidden');
+        }
+        else {
+          this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+        }
+      },
+      onIconClickWrite() {
+        if (this.isLogin) {
+          if (commentCount === 0) {
             this.showMessageBox = true;
             document.body.classList.add('ui-overflow-hidden');
           } else {
-            this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+            location.href = `/art/${articleId}/comment`;
           }
-        });
-      },
-      onIconClickWrite() {
-        checkLogin().done((response) => {
-          if (response.code === 0) {
-            if (commentCount === 0) {
-              this.showMessageBox = true;
-              document.body.classList.add('ui-overflow-hidden');
-            } else {
-              location.href = `/art/${articleId}/comment`;
-            }
-          } else {
-            this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
-          }
-        });
+        } else {
+          this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+        }
       },
       onVote() {
         const self = this;

@@ -9,7 +9,7 @@
              v-model="comment" placeholder="写回复" @touchstart="onTouchStart"
              v-el:comment-input></div>
     <button class="button button-cancel"
-            v-if="hasCancelButton && comment === ''"
+            v-if="hasCancelButton && (comment === '')"
             @touchstart.prevent.stop="onCancel">取消
     </button>
     <button class="button button-send" v-if="comment !== ''"
@@ -23,7 +23,7 @@
     props: ['autoFocus', 'hasCancelButton'],
     data() {
       return {
-        comment: null
+        comment: ''
       };
     },
     methods: {
@@ -32,7 +32,7 @@
       },
       onClear() {
         this.$els.commentInput.focus();
-        this.comment = null;
+        this.comment = '';
       },
       onCancel() {
         this.$els.commentInput.blur();
@@ -40,6 +40,7 @@
       },
       onSend() {
         this.$dispatch('onMessageSend', this.comment);
+        this.comment = '';
       }
     }
   };

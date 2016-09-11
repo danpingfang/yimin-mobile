@@ -23,14 +23,14 @@
     leaveClass: 'fadeOut'
   });
 
-  const isAppleWebkit = navigator.userAgent.toLowerCase().indexOf('applewebkit') !== -1;
-
+  const isIOS = navigator.userAgent.toLowerCase().indexOf('iphone') !== -1;
   export default {
     props: ['autoplay'],
     data() {
       return {
         timer: null,
         isPlay: false,
+        paused: false,
         isShowToolBar: false,
         progress: 0,
         duration: '00:00:00',
@@ -46,7 +46,7 @@
         this.$audio.addEventListener('timeupdate', this.updateTime, false);
         this.$audio.addEventListener('loadedmetadata', this.updateDuration, false);
       }
-      if (this.autoplay) {
+      if (this.autoplay && !isIOS) {
         this.onPlay();
       }
     },
@@ -60,15 +60,19 @@
           clearTimeout(this.timer);
           this.timer = null;
         }
-        this.timer = setTimeout(() => {
-          this.isShowToolBar = false;
-        }, 3000);
+        if (!this.paused) {
+          this.timer = setTimeout(() => {
+            this.isShowToolBar = false;
+          }, 3000);
+        }
       },
       onPlay() {
         if (!this.isPlay) {
           this.$audio.play();
           this.isPlay = true;
+          this.paused = false;
         } else {
+          this.paused = true;
           this.$audio.pause();
           this.isPlay = false;
         }

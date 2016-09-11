@@ -14,9 +14,9 @@
 </head>
 <body>
 <div id="app">
-  <video id="video" class="video-js vjs-ym-skin"
-         controls preload="auto"
-         src="http://videos-cdn.mozilla.net/serv/webmademovies/Moz_Doc_0329_GetInvolved_ST.webm"></video>
+  <video id="video" class="video-js"
+         controls preload="auto" autoplay
+         src="http://news2016-10045838.video.myqcloud.com/article/4c39a4ed-ee26-44fa-9bb0-d906c724d461.mp4"></video>
   <div class="article-media article-media--video">
     <h3 class="article-media-title">有没有人知道，在新西兰买卖二手房，都有什么中间费用？</h3>
     <ul class="article-media-tags tags tags-small">
@@ -37,7 +37,13 @@
   };
   videojs(document.querySelector('video'), {
     width: window.innerWidth,
-    height: 240
+    height: 240,
+    controlBar: {
+      progressControl: {
+        seekBar: {
+        }
+      }
+    }
   }, function () {
   });
 </script>

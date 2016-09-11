@@ -1,5 +1,6 @@
+// const domainUrl = 'http://192.168.1.129:2020';
 const domainUrl = 'http://test.lvbaoyou.com';
-const staticUrl = '//m.qu93.com';
+const staticUrl = '//static-test.lvbaoyou.com';
 
 export default {
   domainUrl,

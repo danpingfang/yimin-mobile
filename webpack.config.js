@@ -11,7 +11,6 @@ module.exports = {
     newsIndex: './src/views/pages/news/index.js',
     articleMedia: './src/views/pages/news/articleMedia.js',
     article: './src/views/pages/news/article.js',
-    comment: './src/views/pages/news/comment.js',
     complain: './src/views/pages/news/complain.js',
   },
   output: {

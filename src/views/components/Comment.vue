@@ -2,13 +2,14 @@
   <div class="comment" v-for="comment in comments">
     <div class="author-info">
       <div class="author-avatar"><img class="image"
-                                      src=""
-                                      alt="{{ comment.commentUser.nickName }}"></div>
+                                      :src="comment.commentUser.avatar"
+                                      alt="{{ comment.commentUser.nickname }}">
+      </div>
       <div class="content">
         <div class="author-header">
-          <div class="author-name">{{ comment.commentUser.nickName }}</div>
+          <div class="author-name">{{ comment.commentUser.nickname }}</div>
         </div>
-        <time>30分钟前</time>
+        <time>{{ comment.commentTimeText }}</time>
         <div class="text">{{ comment.content }}</div>
       </div>
     </div>
@@ -17,9 +18,6 @@
 
 <script>
   export default {
-    props: ['comments'],
-    data() {
-      return {}
-    }
+    props: ['comments']
   };
 </script>
