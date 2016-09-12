@@ -8,9 +8,12 @@ import List from '../../components/List';
 Vue.use(VueInfiniteScroll);
 Vue.transition('slide', {
   enterClass: 'bounceInDown',
-  leaveClass: 'bounceOutDown'
+  leaveClass: 'bounceOutUp'
 });
-
+Vue.transition('fade', {
+  enterClass: 'fadeIn',
+  leaveClass: 'fadeOut'
+});
 const apiUrl = config.apiUrl;
 window.vm = new Vue({
   el: '#app',
@@ -37,6 +40,9 @@ window.vm = new Vue({
       const currentSelect = this.lastSelect;
       this.config[currentSelect].selectedKey = item.selected ? item.key : null;
       location.href = this.getActionUrl();
+    },
+    onHide() {
+      this.handleSelect(this.lastSelect);
     }
   },
   ready() {

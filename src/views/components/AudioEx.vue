@@ -48,11 +48,17 @@
       }
       if (this.autoplay && !isIOS) {
         this.onPlay();
+      } else {
+        this.isShowToolBar = true;
       }
     },
     methods: {
       showToolBar() {
-        this.isShowToolBar = !this.isShowToolBar;
+        if (this.isPlay) {
+          this.isShowToolBar = !this.isShowToolBar;
+        } else {
+          this.isShowToolBar = true;
+        }
         this.autoHideToolBar();
       },
       autoHideToolBar() {
@@ -60,7 +66,7 @@
           clearTimeout(this.timer);
           this.timer = null;
         }
-        if (!this.paused) {
+        if (this.isPlay) {
           this.timer = setTimeout(() => {
             this.isShowToolBar = false;
           }, 3000);
@@ -76,10 +82,9 @@
           this.$audio.pause();
           this.isPlay = false;
         }
-      },
-      onAudioContainerTouch() {
         this.autoHideToolBar();
       },
+      onAudioContainerTouch() {},
       updateDuration() {
         this.duration = this.formatTime(this.$audio.duration);
       },

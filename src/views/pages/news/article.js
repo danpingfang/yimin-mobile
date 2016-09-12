@@ -6,7 +6,7 @@ import Toast from 'vue-toast-mobile';
 import Comment from '../../components/Comment';
 import CommentAdd from '../../components/CommentAdd';
 import CommentEmpty from '../../components/CommentEmpty';
-import CommentMoreButton from '../../components/CommentMoreButton';
+import CommentMoreButton from '../../components/LoadEnd';
 import MessageBox from '../../components/MessageBox';
 import GuideTip from '../../components/GuideTip';
 import MessageBoxDialog from '../../components/MessageBoxDialog';
@@ -17,7 +17,6 @@ Vue.use(VueInfiniteScroll);
 
 $(function() {
   const articleId = jsConfig.articleId;
-  const commentCount = jsConfig.commentCount;
 
   new Vue({
     el: '#app',
@@ -161,12 +160,8 @@ $(function() {
       },
       onIconClickWrite() {
         if (this.isLogin) {
-          if (commentCount === 0) {
-            this.showMessageBox = true;
-            document.body.classList.add('ui-overflow-hidden');
-          } else {
-            location.href = `/art/${articleId}/comment`;
-          }
+          this.showMessageBox = true;
+          document.body.classList.add('ui-overflow-hidden');
         } else {
           this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
         }
