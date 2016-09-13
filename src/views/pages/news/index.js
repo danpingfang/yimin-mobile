@@ -2,6 +2,7 @@ import Vue from 'vue';
 import config from '../../../config';
 import VueInfiniteScroll from 'vue-infinite-scroll';
 import Loading from '../../components/Loading';
+import LoadEnd from '../../components/LoadEnd';
 import List from '../../components/List';
 
 Vue.use(VueInfiniteScroll);
@@ -12,10 +13,12 @@ window.vm = new Vue({
     busy: false,
     isLoading: false,
     startIndex: 20,
+    loadEndText: '没有更多了',
     items: []
   },
   components: {
     List,
+    LoadEnd,
     Loading
   },
   methods: {
@@ -36,9 +39,9 @@ window.vm = new Vue({
             const data = response.data;
             if (data.count > 0) {
               self.items = self.items.concat(data.list);
-              self.startIndex = data.nextIndex;
               self.busy = false;
             }
+            self.startIndex = data.nextIndex;
           }
           self.isLoading = false;
         }

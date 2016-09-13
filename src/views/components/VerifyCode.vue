@@ -1,5 +1,5 @@
 <template>
-  <button type="button" @touchstart="sendVertifyCode"
+  <button type="button" @click="sendVertifyCode"
           class="button-action-vertifycode{{ disable ? ' button-disable' : '' }}">{{ text | getText }}</button>
   <message-code-dialog
     :show-message-code="showMessageCode"

@@ -1,14 +1,14 @@
 <template>
-  <div class="audio" @touchstart.prevent.stop="onAudioContainerTouch">
+  <div class="audio" @click.prevent.stop="onAudioContainerTouch">
     <div class="audio-content animated" v-if="isShowToolBar" transition="fade">
       <div class="audio-current-time">{{ currentTime }}</div>
       <button v-if="!loading" type="button" class="audio-button"
-              @touchstart="onPlay"><i
+              @click="onPlay"><i
         class="icon {{ isPlay ? 'icon-pause' : 'icon-play' }}"></i>
       </button>
       <div class="audio-time">{{ duration }}</div>
     </div>
-    <div class="audio-progress" @touchstart="onStart">
+    <div class="audio-progress" @click="onStart">
       <div class="audio-progress-current"
            :style="{ width: progress + '%'}"></div>
     </div>

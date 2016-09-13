@@ -1,7 +1,7 @@
 <template>
   <nav class="form-tab-nav">
     <span class="form-tab-item{{ item.type === currentType ? ' active' : '' }}"
-          v-for="item in tabs" @touchstart="onTabClick(item.type)">{{ item.name }}</span>
+          v-for="item in tabs" @click="onTabClick(item.type)">{{ item.name }}</span>
   </nav>
 </template>
 

@@ -12,11 +12,15 @@ import GuideTip from '../../components/GuideTip';
 import MessageBoxDialog from '../../components/MessageBoxDialog';
 import AudioEx from '../../components/AudioEx';
 import Loading from '../../components/Loading';
+import LoadEnd from '../../components/LoadEnd';
+
 
 Vue.use(VueInfiniteScroll);
 
 $(function() {
   const articleId = jsConfig.articleId;
+  const commentCount = jsConfig.commentCount;
+  FastClick.attach(document.body);
 
   new Vue({
     el: '#app',
@@ -28,6 +32,7 @@ $(function() {
         busy: false,
         isLoading: false,
         startIndex: 20,
+        loadEndText: '没有更多了',
         showMessageBox: false,
         config: {
           hideMaskEnable: true
@@ -41,6 +46,7 @@ $(function() {
       CommentAdd,
       CommentMoreButton,
       CommentEmpty,
+      LoadEnd,
       MessageBox,
       AudioEx,
       Loading,
@@ -92,9 +98,9 @@ $(function() {
               const data = response.data;
               if (data.count > 0) {
                 self.comments = self.comments.concat(data.list);
-                self.startIndex = data.nextIndex;
                 self.busy = false;
               }
+              self.startIndex = data.nextIndex;
             }
             self.isLoading = false;
           }
@@ -160,8 +166,14 @@ $(function() {
       },
       onIconClickWrite() {
         if (this.isLogin) {
-          this.showMessageBox = true;
-          document.body.classList.add('ui-overflow-hidden');
+          if (commentCount === 0) {
+            this.showMessageBox = true;
+            document.body.classList.add('ui-overflow-hidden');
+            this.showMessageBox = true;
+            document.body.classList.add('ui-overflow-hidden');
+          } else {
+            this.setScroll();
+          }
         } else {
           this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
         }

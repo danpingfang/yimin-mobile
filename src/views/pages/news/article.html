@@ -63,15 +63,15 @@
     </div>
   </div>
   <div class="footer-bar">
-    <button type="button" class="action-button button-arrow" @touchstart.prevent="onBack"><i
+    <button type="button" class="action-button button-arrow" @click.prevent="onBack"><i
       class="icon icon-caret"></i></button>
-    <button class="action-button button-write" @touchstart.prevent="onWrite"><i
+    <button class="action-button button-write" @click.prevent="onWrite"><i
       class="icon icon-write"></i>写评论
     </button>
     <button class="action-button button-comment"><i
       class="icon icon-comment"></i><span>0</span>
     </button>
-    <button class="action-button button-fav" @touchstart.prevent="onVote"><i
+    <button class="action-button button-fav" @click.prevent="onVote"><i
       class="icon icon-fav"></i><span>0</span>
     </button>
   </div>

@@ -8,7 +8,7 @@
         <i class="icon icon-ok" v-if="item.selected"></i>
       </a>
     </div>
-    <div class="ui-menu-overlay animated" transition="fade" v-if="show" @touchstart="onTouchOverlay"></div>
+    <div class="ui-menu-overlay animated" transition="fade" v-if="show" @click="onTouchOverlay"></div>
   </div>
 </template>
 

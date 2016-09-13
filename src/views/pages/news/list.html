@@ -22,17 +22,17 @@
   <form class="category-select">
     <button type="button"
             class="button-select button-project"
-            @touchstart.prevent="handleSelect('project')">
+            @click.prevent="handleSelect('project')">
       <span>$!{selectedProject}</span><i class="icon icon-down"></i>
     </button>
     <button type="button"
             class="button-select button-country"
-            @touchstart.prevent="handleSelect('country')">
+            @click.prevent="handleSelect('country')">
       <span>$!{selectedCountry}</span><i class="icon icon-down"></i>
     </button>
     <button type="button"
             class="button-select button-category"
-            @touchstart.prevent="handleSelect('category')">
+            @click.prevent="handleSelect('category')">
       <span>$!{selectedCategory}</span><i class="icon icon-down"></i>
     </button>
   </form>

@@ -24,7 +24,7 @@
                  v-model="name" @input="onNameInput">
           <span class="form-field-tip" v-if="name === ''">必填</span>
           <button type="button" v-if="name !== ''" class="button button-delete"
-                  @touchstart="onClear('name')"><i class="icon icon-delete"></i>
+                  @click="onClear('name')"><i class="icon icon-delete"></i>
           </button>
         </div>
         <div class="form-field{{ mobileTipError ? ' form-field-error' : '' }}">
@@ -33,7 +33,7 @@
                  maxlength="11">
           <span class="form-field-tip" v-if="mobile === ''">必填</span>
           <button type="button" v-if="mobile !== ''"
-                  class="button button-delete" @touchstart="onClear('mobile')">
+                  class="button button-delete" @click="onClear('mobile')">
             <i class="icon icon-delete"></i></button>
           <verify-code :disable="isDisable"
                        :config="config"></verify-code>
@@ -46,7 +46,7 @@
           <span class="form-field-tip" v-if="verifyCode === ''">必填</span>
           <button type="button" v-if="verifyCode !== ''"
                   class="button button-delete"
-                  @touchstart="onClear('verifyCode')"><i
+                  @click="onClear('verifyCode')"><i
             class="icon icon-delete"></i></button>
         </div>
       </div>

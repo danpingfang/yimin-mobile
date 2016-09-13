@@ -5,10 +5,10 @@
       <input type="text" value="" placeholder="输入项目、地点、专家名" v-model="keywords" autofocus id="comment-input"
              @input="onInput">
       <button type="button" v-if="!isEmpty" class="button button-delete"
-              @touchstart="onClearKeyword"><i
+              @click="onClearKeyword"><i
         class="icon icon-delete"></i></button>
       <button class="button-search-action button-cancel-action" type="button"
-              v-if="isEmpty" @touchstart.prevent="onCancel">取消
+              v-if="isEmpty" @click.prevent="onCancel">取消
       </button>
       <button class="button-search-action button-confirm-action" type="submit"
               v-if="!isEmpty">搜索
@@ -18,7 +18,7 @@
   <div class="section history-section">
     <h3 class="title">
       <span>历史记录</span>
-      <button type="button" @touchstart="onClear" v-if="historySearchList.length > 0">清除</button>
+      <button type="button" @click="onClear" v-if="historySearchList.length > 0">清除</button>
     </h3>
     <div class="content">
       <div class="tags tags-medium tags-light" v-if="historySearchList.length > 0">

@@ -4,6 +4,8 @@ import VueInfiniteScroll from 'vue-infinite-scroll';
 import Loading from '../../components/Loading';
 import MenuSelect from '../../components/MenuSelect';
 import List from '../../components/List';
+import LoadEnd from '../../components/LoadEnd';
+
 
 Vue.use(VueInfiniteScroll);
 Vue.transition('slide', {
@@ -28,11 +30,13 @@ window.vm = new Vue({
     busy: false,
     isLoading: false,
     startIndex: 20,
+    loadEndText: '没有更多了',
     items: []
   },
   components: {
     MenuSelect,
     List,
+    LoadEnd,
     Loading
   },
   events: {
@@ -47,11 +51,14 @@ window.vm = new Vue({
   },
   ready() {
     $(document).on('click', this.hideMenu.bind(this));
+    FastClick.attach(document.body);
   },
   methods: {
     loadMore() {
       const self = this;
       const config = this.config;
+      this.busy = true;
+      this.isLoading = true;
       $.ajax({
         url: `${apiUrl}/art/search_list`,
         data: {
@@ -63,17 +70,15 @@ window.vm = new Vue({
         },
         dataType: 'json',
         beforeSend() {
-          self.busy = true;
-          self.isLoading = true;
         },
         success(response) {
           if (response.code === 0) {
             const data = response.data;
             if (data.count > 0) {
               self.items = self.items.concat(data.list);
-              self.startIndex = data.nextIndex;
               self.busy = false;
             }
+            self.startIndex = data.nextIndex;
           }
           self.isLoading = false;
         }
