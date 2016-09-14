@@ -56,11 +56,13 @@
   padding: 12px;
   border-right: 1px solid #ebebeb;
   font-size: 13px;
+  line-height: 20px;
   white-space: nowrap;
   background-color: #fff;
   color: #5a5a5a;
   span {
     overflow: hidden;
+    vertical-align: middle;
     text-overflow: ellipsis;
   }
   .icon-down {
@@ -70,4 +72,18 @@
   &:last-child {
     border-right-color: transparent;
   }
+  &.active {
+    .icon-select-wrap {
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+    }
+  }
+}
+
+.icon-select-wrap {
+  display: inline-block;
+  transition: transform .5s ease;
+  -webkit-transition: transform .5s ease;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
 }

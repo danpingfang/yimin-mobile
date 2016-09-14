@@ -57,8 +57,6 @@ window.vm = new Vue({
     loadMore() {
       const self = this;
       const config = this.config;
-      this.busy = true;
-      this.isLoading = true;
       $.ajax({
         url: `${apiUrl}/art/search_list`,
         data: {
@@ -70,14 +68,16 @@ window.vm = new Vue({
         },
         dataType: 'json',
         beforeSend() {
+          this.busy = true;
+          this.isLoading = true;
         },
         success(response) {
           if (response.code === 0) {
             const data = response.data;
             if (data.count > 0) {
               self.items = self.items.concat(data.list);
-              self.busy = false;
             }
+            self.busy = false;
             self.startIndex = data.nextIndex;
           }
           self.isLoading = false;

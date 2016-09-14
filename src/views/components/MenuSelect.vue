@@ -1,6 +1,6 @@
 <template>
-  <div class="ui-menu-container">
-    <div class="ui-menu animated" transition="slide" v-if="show">
+  <div class="ui-menu-container" v-if="show">
+    <div class="ui-menu animated" transition="slide">
       <a class="ui-menu-item{{ item.selected ? ' active' : '' }}"
          v-for="item in menuItems"
          @click.prevent="onMenuItemSelect(item)" href="">

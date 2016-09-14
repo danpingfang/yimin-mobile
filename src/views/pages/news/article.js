@@ -20,7 +20,6 @@ Vue.use(VueInfiniteScroll);
 $(function() {
   const articleId = jsConfig.articleId;
   const commentCount = jsConfig.commentCount;
-  FastClick.attach(document.body);
 
   new Vue({
     el: '#app',
@@ -98,8 +97,8 @@ $(function() {
               const data = response.data;
               if (data.count > 0) {
                 self.comments = self.comments.concat(data.list);
-                self.busy = false;
               }
+              self.busy = false;
               self.startIndex = data.nextIndex;
             }
             self.isLoading = false;
