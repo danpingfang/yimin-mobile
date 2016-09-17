@@ -37,9 +37,12 @@ window.vm = new Vue({
         success(response) {
           if (response.code === 0) {
             const data = response.data;
-            if (data.count > 0) {
+            const count = data.count;
+            if (count > 0) {
               self.items = self.items.concat(data.list);
               self.busy = false;
+            } else if (count === 0) {
+              self.busy = true;
             }
             self.startIndex = data.nextIndex;
           }

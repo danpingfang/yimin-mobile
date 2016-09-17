@@ -1,0 +1,57 @@
+.purpose {
+  padding: 23px 0 25px;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 21px;
+  text-align: center;
+  background-color: #f7f7f7;
+  color: #505050;
+  &:before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    border-radius: 12px;
+    background: url(/static/yimin/images/wx-logo.png) no-repeat 0 0;
+    background-size: 60px 60px;
+  }
+}
+
+.content {
+  padding: 0 16px 18px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #525252;
+  img,
+  p {
+    margin: 17px 0;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.feature-title {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.feature-item {
+  display: flex;
+  margin-bottom: 12px;
+  .icon {
+    margin-top: 4px;
+    margin-right: 8px;
+    font-size: 18px;
+    color: #e2694f;
+  }
+  .feature-content {
+    flex: 1;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

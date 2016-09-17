@@ -95,10 +95,13 @@ $(function() {
           success(response) {
             if (response.code === 0) {
               const data = response.data;
-              if (data.count > 0) {
+              const count = data.count;
+              if (count > 0) {
                 self.comments = self.comments.concat(data.list);
+                self.busy = false;
+              } else if (count === 0) {
+                self.busy = true;
               }
-              self.busy = false;
               self.startIndex = data.nextIndex;
             }
             self.isLoading = false;
@@ -166,8 +169,6 @@ $(function() {
       onIconClickWrite() {
         if (this.isLogin) {
           if (commentCount === 0) {
-            this.showMessageBox = true;
-            document.body.classList.add('ui-overflow-hidden');
             this.showMessageBox = true;
             document.body.classList.add('ui-overflow-hidden');
           } else {
