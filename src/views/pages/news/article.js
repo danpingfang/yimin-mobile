@@ -72,6 +72,23 @@ $(function() {
         this.onWrite();
       }
     },
+    ready() {
+      if (navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1) {
+        const imgs = [];
+        $('.article-content img').map(function (i, item) {
+          imgs.push(item.src);
+        });
+        $(document).on('click', function (e) {
+          const target = $(e.target);
+          if (target.closest('.article-content').length && target[0].nodeName.toLowerCase() === 'img') {
+            wx.previewImage({
+              current: target.attr('src'),
+              urls: imgs
+            });
+          }
+        });
+      }
+    },
     created() {
       checkLogin().done((response) => {
         if (response.code === 0) {
@@ -177,6 +194,9 @@ $(function() {
         } else {
           this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
         }
+      },
+      onViewIdCard() {
+        location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzMzU1ODU4Nw==&scene=110#wechat_redirect';
       },
       onVote() {
         const self = this;

@@ -4,6 +4,7 @@
 @import "../../components/Tags";
 @import "../../components/GuideTip";
 @import "../../components/MessageBox";
+@import "../../components/WechatShare";
 
 body {
   padding-bottom: 50px;
@@ -130,7 +131,9 @@ body {
   display: -webkit-flex;
   font-size: 12px;
 }
-
+.article-types-full .article-type {
+  width: 100%;
+}
 .article-type {
   overflow: hidden;
   width: 50%;

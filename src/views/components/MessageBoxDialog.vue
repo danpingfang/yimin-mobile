@@ -10,9 +10,15 @@
     data() {
       return {
         dialogConfig: {
+          hideMaskEnable: true,
           dialogClassName: 'messageBoxDialog'
         }
       };
+    },
+    events: {
+      onCancel() {
+        this.$dispatch('onMessageCancel');
+      }
     },
     components: {
       BaseDialog

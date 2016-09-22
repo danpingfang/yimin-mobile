@@ -1,0 +1,40 @@
+.image-code-container {
+  margin-right: 8%;
+  padding: 4px;
+  border: 1px solid #f5f5f5;
+  img {
+    display: block;
+  }
+}
+
+.wechat-share {
+  display: none;
+  border-bottom: 1px solid #f5f5f5;
+  .button {
+    padding: 6px 18px;
+    .icon {
+      margin-right: 9px;
+      vertical-align: middle;
+      color: #fff;
+    }
+  }
+}
+
+.wechat-share-title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  white-space: nowrap;
+  line-height: 22px;
+  color: #525252;
+}
+
+.wechat-share--vertical {
+  display: flex;
+  align-items: center;
+  padding: 10px 44px;
+}
+
+.wechat-share--horizontal {
+  padding: 27px;
+  text-align: center;
+}

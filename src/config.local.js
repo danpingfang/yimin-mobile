@@ -9,12 +9,7 @@ export default {
   authApiUrl: `${domainUrl}/cis/inner/api/v1`,
   authUrl: `${domainUrl}/cis/inner/web/redirect/weixin_redirect?redirectUrl=${location.href}&deviceId=${getDeviceId()}`,
   whiteListUrls: [
-    /^https:\/\/m.lvbaoyou.com/,
-    /^http:\/\/m.qu93.com/,
-    /^http:\/\/qu93.com/,
-    /^http:\/\/115\.159\.71\.249/,
-    /^http:\/\/test\.lvbaoyou\.com/,
-    /^http:\/\/wx\.lvbaoyou\.com/
+    /^http:\/\/m.oversealive.com/
   ],
   loginConfig: {
     needImage: {
