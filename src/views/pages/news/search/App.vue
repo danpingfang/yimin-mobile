@@ -2,16 +2,15 @@
   <div class="search search-white">
     <form action="" class="search-form search-action-form" @submit.prevent="onSubmit">
       <i class="icon icon-search"></i>
-      <input type="text" value="" placeholder="输入项目、地点、专家名" v-model="keywords" autofocus id="comment-input"
-             @input="onInput">
-      <button type="button" v-if="!isEmpty" class="button button-delete"
+      <input type="text" value="" placeholder="输入项目、地点、专家名" v-model="keywords" id="comment-input">
+      <button type="button" v-if="keywords !== ''" class="button button-delete"
               @click="onClearKeyword"><i
         class="icon icon-delete"></i></button>
       <button class="button-search-action button-cancel-action" type="button"
-              v-if="isEmpty" @click.prevent="onCancel">取消
+              v-if="keywords === ''" @click.prevent="onCancel">取消
       </button>
       <button class="button-search-action button-confirm-action" type="submit"
-              v-if="!isEmpty">搜索
+              v-if="keywords !== ''">搜索
       </button>
     </form>
   </div>
@@ -51,13 +50,6 @@
       Empty
     },
     methods: {
-      onInput() {
-        if (this.keywords !== '') {
-          this.isEmpty = false;
-        } else {
-          this.isEmpty = true;
-        }
-      },
       onSubmit() {
         const keywords = this.keywords;
         const historySearchList = this.historySearchList;

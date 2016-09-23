@@ -1,4 +1,4 @@
-const domainUrl = '//m.oversealive.com';
+const domainUrl = 'http://m.oversealive.com';
 const staticUrl = '//s.oversealive.com';
 
 export default {

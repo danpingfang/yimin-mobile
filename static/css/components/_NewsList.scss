@@ -39,6 +39,17 @@
   }
 }
 
+.news-item--reverse {
+  .news-container {
+    flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+  }
+  .image-container {
+    margin-right: 18px;
+    margin-left: 0;
+  }
+}
+
 .image-container {
   position: relative;
   overflow: hidden;
