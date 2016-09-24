@@ -3,6 +3,7 @@ import Toast from 'vue-toast-mobile';
 import config from '../../../config';
 import SurveyForm from '../../components/SurveyForm';
 
+const itemId = jsConfig.itemId;
 new Vue({
   el: 'body',
   components: {
@@ -14,25 +15,22 @@ new Vue({
       const survey = this.$refs.survey.valid();
       if (survey) {
         $.ajax({
-          url: `${config.apiUrl}/cis/open/api/v1/item/order_consult`,
+          url: `${config.apiUrl}/item/order_consult`,
           data: {
-            itemId: jsConfig.itemId,
+            itemId: itemId,
             name: survey.name,
             mobile: survey.mobile,
             verifyCode: survey.verifyCode
           },
           dataType: 'json',
           success(response) {
-            if (response.data) {
-              location.href = '/cis/open/web/user/igr/intent/success'
-            } else {
-              Toast({
-                message: response.message,
-                position: 'bottom',
-                duration: 5000,
-                className: 'toast-wrap'
-              });
-            }
+            Toast({
+              message: response.message,
+              position: 'middle',
+              duration: 5000,
+              className: 'toast-wrap'
+            });
+            location.href = `/item/${itemId}/`;
           }
         });
       }
