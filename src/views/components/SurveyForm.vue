@@ -1,15 +1,11 @@
 <template>
   <div class="survey-form">
     <div class="form-field{{ nameTipError ? ' form-field-error' : '' }}">
-      <input v-if="isDisableNameInput" readonly class="form-input disabled"
-             type="text" value="{{ name }}(不可更改)">
-      <template v-if="!isDisableNameInput">
-        <input class="form-input" type="text" value="" placeholder="姓名(必填)"
-               v-model="name" @input="onNameInput">
-        <button type="button" v-if="name !== ''" class="button button-delete"
-                @click="onClear('name')"><i class="icon icon-delete"></i>
-        </button>
-      </template>
+      <input class="form-input" type="text" value="{{ name }}" placeholder="姓名(必填)"
+             v-model="name" @input="onNameInput">
+      <button type="button" v-if="name !== ''" class="button button-delete"
+              @click="onClear('name')"><i class="icon icon-delete"></i>
+      </button>
     </div>
     <div class="form-field{{ mobileTipError ? ' form-field-error' : '' }}">
       <input class="form-input disabled" type="tel" value="{{ mobile }}(不可更改)"
@@ -53,7 +49,6 @@
         isDisable: true,
 
         name: null,
-        isDisableNameInput: false,
         nameTipError: false,
 
         mobile: null,
@@ -84,7 +79,6 @@
       const mobile = jsConfig.mobile;
       this.name = nickname;
       this.mobile = mobile;
-      this.isDisableNameInput = nickname !== '';
       this.isDisableMobileInput = mobile !== '';
     },
     methods: {
