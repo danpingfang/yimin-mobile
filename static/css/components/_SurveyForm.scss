@@ -1,0 +1,45 @@
+@import "../components/MessageCodeDialog";
+@import "../components/MessageTip";
+
+.survey-form {
+  padding: 20px 12px;
+}
+.form-field {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  margin-bottom: 15px;
+  padding: 0 10px;
+  border-bottom: 1px solid #e1e7eb;
+  &.form-field-error {
+    border-color: #e2694f;
+    ::-webkit-input-placeholder {
+      color: #e2694f;
+    }
+    .form-field-tip {
+      color: #e2694f;
+    }
+  }
+  .form-input {
+    flex: 1;
+    -webkit-flex: 1;
+    height: 40px;
+    padding: 9px 0 10px;
+    font-size: 14px;
+    line-height: 21px;
+    border: 0;
+    color: #889198;
+    &.disabled {
+      opacity: .5;
+    }
+  }
+  .form-field-tip {
+    white-space: nowrap;
+    font-size: 13px;
+    color: #b7c0c8;
+  }
+  .button-action-vertifycode {
+    margin-left: 10px;
+  }
+}
