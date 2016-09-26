@@ -30,7 +30,6 @@ new Vue({
               setTimeout(function () {
                 location.href = `/item/${itemId}/`;
               }, 3000);
-
             }
             Toast({
               message: message,
