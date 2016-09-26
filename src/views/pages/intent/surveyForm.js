@@ -24,13 +24,20 @@ new Vue({
           },
           dataType: 'json',
           success(response) {
+            let message = response.message;
+            if (response.code === 0) {
+              message = '预约成功';
+              setTimeout(function () {
+                location.href = `/item/${itemId}/`;
+              }, 3000);
+
+            }
             Toast({
-              message: response.message,
+              message: message,
               position: 'middle',
-              duration: 5000,
+              duration: 3000,
               className: 'toast-wrap'
             });
-            location.href = `/item/${itemId}/`;
           }
         });
       }
