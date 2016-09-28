@@ -12,7 +12,7 @@ module.exports = {
     articleMedia: './src/views/pages/news/articleMedia.js',
     article: './src/views/pages/news/article.js',
     complain: './src/views/pages/news/complain.js',
-    surveyForm: './src/views/pages/intent/surveyForm.js',
+    surveyForm: './src/views/pages/intent/surveyForm.js'
   },
   output: {
     path: path.resolve(__dirname, './dist/static/js'),

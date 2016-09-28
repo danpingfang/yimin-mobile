@@ -12,6 +12,7 @@ mkdir dist/static/css
 mkdir dist/static/images
 cp static/js/build.vendor.js dist/static/js/
 cp static/js/lazysizes.js dist/static/js/
+cp static/js/wechatShare.js dist/static/js/
 cp -r static/css/*.css dist/static/css/
 cp -r static/css/**/*.css dist/static/css/
 cp -r static/css/**/**/*.css dist/static/css/

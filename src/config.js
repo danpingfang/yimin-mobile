@@ -1,5 +1,6 @@
-const domainUrl = 'http://m.oversealive.com';
-const staticUrl = '//s.oversealive.com';
+// const domainUrl = 'http://192.168.1.129:2020';
+const domainUrl = 'http://test.lvbaoyou.com';
+const staticUrl = '//static-test.lvbaoyou.com';
 
 export default {
   domainUrl,
@@ -8,6 +9,7 @@ export default {
   authApiUrl: `${domainUrl}/cis/inner/api/v1`,
   authUrl: `${domainUrl}/cis/inner/web/redirect/weixin_redirect?redirectUrl=${location.href}&deviceId=${getDeviceId()}`,
   whiteListUrls: [
+    /^http:\/\/test.lvbaoyou.com/,
     /^http:\/\/m.oversealive.com/
   ],
   loginConfig: {
