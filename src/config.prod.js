@@ -2,6 +2,7 @@ const domainUrl = 'http://m.oversealive.com';
 const staticUrl = '//s.oversealive.com';
 
 export default {
+  debugger: location.href.indexOf('debug=true') !== -1,
   domainUrl,
   staticUrl,
   apiUrl: `${domainUrl}/cis/open/api/v1`,

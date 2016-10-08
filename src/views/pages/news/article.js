@@ -20,7 +20,9 @@ Vue.use(VueInfiniteScroll);
 $(function() {
   const articleId = jsConfig.articleId;
   const commentCount = jsConfig.commentCount;
-
+  if (config.debugger) {
+    alert(document.cookie);
+  }
   new Vue({
     el: '#app',
     data() {
