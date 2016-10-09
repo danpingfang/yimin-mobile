@@ -20,9 +20,9 @@ cp -r static/fonts/ dist/static/
 cp -r static/images/ dist/static/
 
 if [ $1 = "publish" ]; then
-      rsync -rav node_modules/video.js root@115.159.33.205:/var/www/oversealive/s/static/node_modules/
-      rsync -rav dist/static/ root@115.159.33.205:/var/www/oversealive/s/static/yimin/
+      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s/static/node_modules/
+      scp -r dist/static/ root@115.159.33.205:/var/www/oversealive/s/static/yimin/
     else
-      rsync -av node_modules/video.js root@115.159.33.205:/var/www/app/test/static/node_modules/
-      rsync -av dist/static/ root@115.159.33.205:/var/www/app/test/static/yimin/
+      scp -r node_modules/video.js root@115.159.33.205:/var/www/app/test/static/node_modules/
+      scp -r dist/static/ root@115.159.33.205:/var/www/app/test/static/yimin/
 fi
