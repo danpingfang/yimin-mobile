@@ -23,6 +23,6 @@ if [ $1 = "publish" ]; then
       scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s/static/node_modules/
       scp -r dist/static/ root@115.159.33.205:/var/www/oversealive/s/static/yimin/
     else
-      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s-test/static/node_modules/
+#      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s-test/static/node_modules/
       scp -r dist/static/* root@115.159.33.205:/var/www/oversealive/s-test/static/yimin
 fi

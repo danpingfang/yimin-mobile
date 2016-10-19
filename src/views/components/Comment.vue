@@ -10,7 +10,7 @@
           <div class="author-name">{{ comment.commentUser.nickname }}</div>
         </div>
         <time>{{ comment.commentTimeText }}</time>
-        <div class="text">{{ comment.content }}</div>
+        <div class="text">{{ comment.commentContent }}</div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <validator name="loginform">
-    <form class="form login-form" @submit="onSubmit">
+    <form class="form login-form" @submit="onSubmit" v-show="currentType === 2">
       <div
         class="form-field{{($loginform.email.touched || $loginform.email.modified) && $loginform.email.invalid ? ' form-field-error' : '' }}">
         <i class="icon icon-email"></i>
@@ -23,7 +23,7 @@
           确定
         </button>
         <div class="agreement-text">点击确定即表示您同意<a
-          href="/cis/open/web/account/agreement.htm">《漂洋过海用户协议》</a>
+          href="/cis/open/web/account/agreement.htm">《漂洋海外用户协议》</a>
         </div>
       </div>
     </form>
@@ -41,6 +41,7 @@
   import MessageCodeDialog from '../components/MessageCodeDialog';
 
   export default {
+    props: ['currentType'],
     data() {
       return {
         areaCode: null,

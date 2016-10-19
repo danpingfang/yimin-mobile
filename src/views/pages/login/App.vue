@@ -1,8 +1,8 @@
 <template>
   <div class="login">
     <form-tab :tabs="formTabs" :current-type="currentType"></form-tab>
-    <form-mobile v-if="currentType === 1"></form-mobile>
-    <form-email v-if="currentType === 2"></form-email>
+    <form-mobile :current-type="currentType"></form-mobile>
+    <form-email :current-type="currentType"></form-email>
   </div>
 </template>
 
