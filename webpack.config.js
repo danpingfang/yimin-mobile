@@ -4,6 +4,7 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     login: './src/views/pages/login/main.js',
+    client: './src/client/init.js',
     search: './src/views/pages/news/search/main.js',
     quiz: './src/views/pages/quiz/main.js',
     quizSuccess: './src/views/pages/quiz/success/main.js',

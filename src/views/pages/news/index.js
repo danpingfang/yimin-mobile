@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Swiper from 'swiper';
 import config from '../../../config';
 import VueInfiniteScroll from 'vue-infinite-scroll';
 import Loading from '../../components/Loading';
@@ -20,6 +21,13 @@ window.vm = new Vue({
     List,
     LoadEnd,
     Loading
+  },
+  ready() {
+    new Swiper('.swiper-container', {
+      pagination: '.swiper-pagination',
+      paginationClickable: true,
+      loop: true
+    });
   },
   methods: {
     loadMore() {
