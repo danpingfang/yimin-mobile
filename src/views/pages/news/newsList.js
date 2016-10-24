@@ -30,6 +30,8 @@ window.vm = new Vue({
     busy: false,
     isLoading: false,
     startIndex: 20,
+    itemCount: 20,
+    isEnd: false,
     loadEndText: '没有更多了',
     items: []
   },
@@ -56,7 +58,7 @@ window.vm = new Vue({
   methods: {
     loadMore() {
       const self = this;
-      const config = self.config;
+      const config = sself.config;
       $.ajax({
         url: `${apiUrl}/art/search_list`,
         data: {
@@ -64,26 +66,27 @@ window.vm = new Vue({
           country: config.country.selectedKey,
           project: config.project.selectedKey,
           category: config.category.selectedKey,
-          startIndex: this.startIndex
+          startIndex: this.startIndex,
+          itemCount: this.itemCount
         },
         dataType: 'json',
         beforeSend() {
-          this.busy = true;
-          this.isLoading = true;
+          self.busy = true;
+          self.isLoading = true;
         },
         success(response) {
           if (response.code === 0) {
             const data = response.data;
             const count = data.count;
+            const isLast = count < self.itemCount;
             if (count > 0) {
               self.items = self.items.concat(data.list);
-              self.busy = false;
-            } else if (count === 0) {
-              self.busy = true;
             }
             self.startIndex = data.nextIndex;
+            self.busy = isLast;
+            self.isEnd = isLast;
+            self.isLoading = !isLast;
           }
-          self.isLoading = false;
         }
       });
     },

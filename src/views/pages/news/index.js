@@ -13,7 +13,9 @@ window.vm = new Vue({
   data: {
     busy: false,
     isLoading: false,
+    isEnd: false,
     startIndex: 20,
+    itemCount: 20,
     loadEndText: '没有更多了',
     items: []
   },
@@ -46,15 +48,15 @@ window.vm = new Vue({
           if (response.code === 0) {
             const data = response.data;
             const count = data.count;
+            const isLast = count < self.itemCount;
             if (count > 0) {
               self.items = self.items.concat(data.list);
-              self.busy = false;
-            } else if (count === 0) {
-              self.busy = true;
             }
             self.startIndex = data.nextIndex;
+            self.busy = isLast;
+            self.isEnd = isLast;
+            self.isLoading = !isLast;
           }
-          self.isLoading = false;
         }
       });
     }
