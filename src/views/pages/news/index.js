@@ -24,13 +24,13 @@ window.vm = new Vue({
     LoadEnd,
     Loading
   },
-  ready() {
-    new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      loop: true
-    });
-  },
+  // ready() {
+  //   new Swiper('.swiper-container', {
+  //     pagination: '.swiper-pagination',
+  //     paginationClickable: true,
+  //     loop: true
+  //   });
+  // },
   methods: {
     loadMore() {
       const self = this;
