@@ -37,7 +37,8 @@ window.vm = new Vue({
       $.ajax({
         url: `${config.apiUrl}/art/search_list`,
         data: {
-          startIndex: this.startIndex
+          startIndex: this.startIndex,
+          itemCount: this.itemCount
         },
         dataType: 'json',
         beforeSend() {
