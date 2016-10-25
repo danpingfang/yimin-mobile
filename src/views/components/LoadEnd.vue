@@ -1,5 +1,5 @@
 <template>
-  <div class="load-end" v-if="isEnd === 0" :style="styles">{{ text }}</div>
+  <div class="load-end" v-if="isEnd" :style="styles">{{ text }}</div>
 </template>
 
 <script>

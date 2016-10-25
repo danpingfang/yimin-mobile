@@ -58,7 +58,7 @@ window.vm = new Vue({
   methods: {
     loadMore() {
       const self = this;
-      const config = sself.config;
+      const config = self.config;
       $.ajax({
         url: `${apiUrl}/art/search_list`,
         data: {
