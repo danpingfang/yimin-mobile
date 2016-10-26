@@ -6,18 +6,18 @@
             @click="onClear"><i
       class="icon icon-delete"></i></button>
       <input id="comment-input" type="text" value="" v-if="isLogin"
-             v-model="comment" placeholder="写回复" @touchstart="onTouchStart"
+             v-model="comment" placeholder="写回复" @touchend="onTouchEnd"
              v-el:comment-input>
-      <input id="comment-input" type="text" value="" readonly v-if="!isLogin"
-             v-model="comment" placeholder="写回复" @touchstart="onTouchStart"
+      <input id="comment-input" type="text" value="" readonly v-if="!isLogin" data-client-method-name="login"
+             v-model="comment" placeholder="写回复" @touchend="onTouchEnd"
              v-el:comment-input>
     </div>
     <button class="button button-cancel"
             v-if="hasCancelButton && (comment === '')"
-            @touchstart.prevent.stop="onCancel">取消
+            @touchend.prevent.stop="onCancel">取消
     </button>
     <button class="button button-send" v-if="comment !== ''"
-            @touchstart.prevent="onSend">发送
+            @touchend.prevent="onSend">发送
     </button>
   </div>
 </template>
@@ -31,7 +31,7 @@
       };
     },
     methods: {
-      onTouchStart() {
+      onTouchEnd() {
         this.$dispatch('onInputTouch', false);
       },
       onClear() {

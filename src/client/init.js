@@ -22,7 +22,7 @@ function initPageEvent() {
         switch (clientMethodName) {
           case 'login':
             webViewClient.dispatch('isLogin', (data) => {
-              if (data.status === 1) {
+              if (data.status === 1 && url) {
                 location.href = url;
               }
             });
@@ -42,7 +42,7 @@ function initPageEvent() {
   }, false);
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   try {
     if (platform.isOverseaApp) {
       initPageEvent();

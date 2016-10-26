@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import config from '../../../config';
+import platform from '../../../utils/platform';
 import VueInfiniteScroll from 'vue-infinite-scroll';
 import checkLogin from '../../../checkLogin';
 import Toast from 'vue-toast-mobile';
@@ -20,9 +21,8 @@ Vue.use(VueInfiniteScroll);
 $(function() {
   const articleId = jsConfig.articleId;
   const commentCount = jsConfig.commentCount;
-  if (config.debugger) {
-    alert(document.cookie);
-  }
+  const isOverseaApp = platform.isOverseaApp;
+
   new Vue({
     el: '#app',
     data() {
@@ -182,7 +182,9 @@ $(function() {
           document.body.classList.add('ui-overflow-hidden');
         }
         else {
-          this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+          if (!isOverseaApp) {
+            this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+          }
         }
       },
       onIconClickWrite() {
@@ -194,11 +196,10 @@ $(function() {
             this.setScroll();
           }
         } else {
-          this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+          if (!isOverseaApp) {
+            this.openGuideTip('绑定帐号后可以评论你喜欢的内容');
+          }
         }
-      },
-      onViewIdCard() {
-        location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzMzU1ODU4Nw==&scene=110#wechat_redirect';
       },
       onVote() {
         const self = this;
@@ -217,7 +218,9 @@ $(function() {
             } else if (code > 0) {
               self.showToast(response.message);
             } else {
-              self.openGuideTip('绑定帐号后可以点赞你喜欢的内容');
+              if (!isOverseaApp) {
+                self.openGuideTip('绑定帐号后可以点赞你喜欢的内容');
+              }
             }
           }
         });
