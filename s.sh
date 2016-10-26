@@ -20,8 +20,13 @@ cp -r static/fonts/ dist/static/
 cp -r static/images/ dist/static/
 
 if [ $1 = "publish" ]; then
-      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s/static/node_modules/
-      scp -r dist/static/* root@115.159.33.205:/var/www/oversealive/s/static/yimin
+      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s/static/1.0.0/node_modules/
+      scp -r dist/static/js root@115.159.33.205:/var/www/oversealive/s/static/1.0.0/yimin
+      scp -r dist/static/css root@115.159.33.205:/var/www/oversealive/s/static/1.0.0/yimin
+      scp -r dist/static/images root@115.159.33.205:/var/www/oversealive/s/static
     else
-      scp -r dist/static/* root@115.159.33.205:/var/www/oversealive/s-test/static/debug/yimin
+      scp -r node_modules/video.js root@115.159.33.205:/var/www/oversealive/s-test/static/debug/node_modules
+      scp -r dist/static/css root@115.159.33.205:/var/www/oversealive/s-test/static/debug/yimin
+      scp -r dist/static/js root@115.159.33.205:/var/www/oversealive/s-test/static/debug/yimin
+      scp -r dist/static/images root@115.159.33.205:/var/www/oversealive/s-test/static
 fi
