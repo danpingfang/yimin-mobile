@@ -171,7 +171,7 @@ $(function() {
       },
       onBack() {
         if (history.length === 1) {
-          location.href = `${config.domainUrl}/art/index`;
+          location.href = `${config.domainUrl}/index/index`;
         } else {
           history.go(-1);
         }
