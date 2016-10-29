@@ -28,7 +28,7 @@ window.vm = new Vue({
       category: null
     },
     busy: false,
-    isLoading: false,
+    isLoading: true,
     startIndex: 20,
     itemCount: 20,
     isEnd: false,
@@ -59,6 +59,7 @@ window.vm = new Vue({
     loadMore() {
       const self = this;
       const config = self.config;
+      self.busy = true;
       $.ajax({
         url: `${apiUrl}/art/search_list`,
         data: {
@@ -70,10 +71,6 @@ window.vm = new Vue({
           itemCount: this.itemCount
         },
         dataType: 'json',
-        beforeSend() {
-          self.busy = true;
-          self.isLoading = true;
-        },
         success(response) {
           if (response.code === 0) {
             const data = response.data;
