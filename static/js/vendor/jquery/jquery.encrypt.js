@@ -1,8 +1,6 @@
-(function($) {
-  $.extend($.ajaxSettings, {
-    beforeSend: function(xhr) {
-      var deviceId = getDeviceId();
-      xhr.setRequestHeader('deviceId', deviceId);
-    }
-  });
-})(jQuery);
+$.extend($.ajaxSettings, {
+  beforeSend: function(xhr) {
+    var deviceId = getDeviceId();
+    xhr.setRequestHeader('deviceId', deviceId);
+  }
+});
