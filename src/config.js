@@ -1,14 +1,15 @@
-const domainUrl = 'http://m.oversealive.com';
-const staticUrl = '//s.oversealive.com';
+// const domainUrl = 'http://192.168.1.129:2020';
+const domainUrl = 'http://m-test.oversealive.com';
+const staticUrl = '//s-test.oversealive.com';
 
 export default {
-  debugger: location.href.indexOf('debug=true') !== -1,
   domainUrl,
   staticUrl,
   apiUrl: `${domainUrl}/cis/open/api/v1`,
   authApiUrl: `${domainUrl}/cis/inner/api/v1`,
   authUrl: `${domainUrl}/cis/inner/web/redirect/weixin_redirect?redirectUrl=${location.href}&deviceId=${getDeviceId()}`,
   whiteListUrls: [
+    /^http:\/\/m-test.oversealive.com/,
     /^http:\/\/m.oversealive.com/
   ],
   loginConfig: {
